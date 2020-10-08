@@ -13,17 +13,68 @@ function newForEach(array, callback) {
 }
 
 // complete the functions below so that they mimic the built in methods
-function newSome() {}
+function newSome(array, callback) {
+  let numFalse = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      return true;
+    } else {
+      numFalse++;
+    }
+  }
+  if (numFalse == array.length) {
+    return false;
+  }
+}
 
-function newEvery() {}
+function newEvery(array, callback) {
+  let numTrue = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      numTrue++;
+    } else {
+      return false;
+    }
+  }
+  if (numTrue == array.length) {
+    return true;
+  }
+}
 
-function newFind() {}
+function newFind(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      return array[i];
+    }
+  }
+}
 
-function newFindIndex() {}
+function newFindIndex(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      return i;
+    }
+  }
+  return -1;
+}
 
-function newMap() {}
+function newMap(array, callback) {
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    newArray.push(callback(array[i]));
+  }
+  return newArray;
+}
 
-function newFilter() {}
+function newFilter(array, callback) {
+  newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+}
 
 /**
  * TESTS -----------------------------------------------
